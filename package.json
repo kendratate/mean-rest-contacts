@@ -1,0 +1,14 @@
+{
+  "name": "contact-server",
+  "version": "1.0.0",
+  "description": "Contact Server for Contact Web app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kendra Tate",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
