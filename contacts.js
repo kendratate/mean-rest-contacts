@@ -28,12 +28,46 @@ module.exports = function(app){
     app.delete('/:id', function(req,res) {
         console.log("in delete");
         var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
-        var data = findRemove(readdata.contacts, 'id', req.params.id);
+        var data = findRemove(readdata, 'id', req.params.id);
         console.log(data);
-        fs.writeFile(contactsFile, JSON.stringify(data), function(err){
-            if(err) returnconsole.log(err);
+
+        //fs.writeFileSync(contactsFile, JSON.stringify(data,null,2));
+
+        fs.writeFile(contactsFile, JSON.stringify(data,null,2), function(err){
+            if(err) {
+                console.log(err);
+                return;
+            }
+            res.end(JSON.stringify("Item Deleted"));
+           console.log('writing to ' + contactsFile);
+        });
+        return data;
+    });
+
+    app.get('/sort', function(req, res){
+        console.log("in sort");
+        var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
+
+        var data = readdata.contacts.sort(function(a, b){
+            console.log(a);
+            console.log(b);
+            var x = a.firstname.toLowerCase();
+            var y = b.firstname.toLowerCase();
+            if(x < y) {return -1;}
+            if(x > y) {return 1;}
+            return 0;
+        });
+        readdata.contacts = data;
+        fs.writeFile(contactsFile, JSON.stringify(readdata,null,2), function(err){
+            if(err) {
+                console.log(err);
+                return;
+            }
+            res.end(JSON.stringify("Items Sorted"));
             console.log('writing to ' + contactsFile);
         });
-        console.log(data);
-    });
+
+        console.log(readdata);
+        return readdata;
+    })
 };
