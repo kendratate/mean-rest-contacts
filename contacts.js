@@ -3,6 +3,9 @@ var path = require('path');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
+
+
+
 module.exports = function(app){
     var contactsFile = path.join(__dirname, 'contacts.json');
 
@@ -44,7 +47,7 @@ module.exports = function(app){
         return data;
     });
 
-    app.get('/sort', function(req, res){
+    app.get('/sorta', function(req, res){
         console.log("in sort");
         var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
 
@@ -63,11 +66,48 @@ module.exports = function(app){
                 console.log(err);
                 return;
             }
-            res.end(JSON.stringify("Items Sorted"));
-            console.log('writing to ' + contactsFile);
+            res.end(JSON.stringify(readdata));
         });
 
-        console.log(readdata);
-        return readdata;
+    });
+
+    app.get('/sortd', function(req, res){
+        var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
+
+        var data = readdata.contacts.sort(function(a, b){
+            console.log(a);
+            console.log(b);
+            var x = a.firstname.toLowerCase();
+            var y = b.firstname.toLowerCase();
+            if(x > y) {return -1;}
+            if(x < y) {return 1;}
+            return 0;
+        });
+        readdata.contacts = data;
+        fs.writeFile(contactsFile, JSON.stringify(readdata,null,2), function(err){
+            if(err) {
+                console.log(err);
+                return;
+            }
+            res.end(JSON.stringify(readdata));
+        });
+
     })
+
+    app.post('/', function(req, res){
+        var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
+        //console.log(readdata);
+        console.log(req.body);
+        readdata.contacts.push(req.body);
+        console.log(readdata);
+
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.writeFile(contactsFile, JSON.stringify(readdata,null,2), function(err){
+            if(err) {
+                console.log(err);
+                return;
+            }
+            res.end(JSON.stringify(readdata));
+        });
+     })
 };

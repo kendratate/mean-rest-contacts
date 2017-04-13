@@ -21,7 +21,7 @@
     {
       "id": "10",
       "firstname": "Fred",
-      "lastname": "Flinston",
+      "lastname": "Flinstone",
       "phone": "854-777-8888"
     },
     {
@@ -57,7 +57,7 @@
     {
       "id": "13",
       "firstname": "Wilma",
-      "lastname": "Flinston",
+      "lastname": "Flinstone",
       "phone": "822-775-8333"
     }
   ]
