@@ -57,12 +57,6 @@ module.exports = function(app) {
         });
     });
 
-   // // array filters items based on search criteria (query)
-   // function filterItems(contactarray, query) {
-   //     return contactarray.filter(function(el){
-   //         return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
-   //     })
-   // }
 
     app.get('/search/:searchterm', function (req, res){
         console.log("Search for: " + req.params.searchterm);
@@ -77,32 +71,12 @@ module.exports = function(app) {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.end(JSON.stringify(readdata));
         });
-
-        // res.type('application/json');
-        // var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
-        // //console.log(readdata);
-        // console.log(req.body);
-        // var jsonobject = {contacts: []};
-        //
-        // var i = readdata.contacts.length + 1;
-        // while(i--) {
-        //     if (readdata.contacts[i]
-        //         && ((readdata.contacts[i].firstname.toLowerCase().indexOf(req.params.searchterm.toLowerCase()) > -1)
-        //             || (readdata.contacts[i].lastname.toLowerCase().indexOf(req.params.searchterm.toLowerCase()) > -1)
-        //             || (readdata.contacts[i].phone.toLowerCase().indexOf(req.params.searchterm.toLowerCase()) > -1)
-        //         )) {
-        //         jsonobject.contacts.push(readdata.contacts[i]);
-        //     }
-        // }
-        // console.log(jsonobject);
-        // readdata.contacts = jsonobject;
-        // res.writeHead(200, {'Content-Type': 'text/html'});
-        // res.end(JSON.stringify(jsonobject));
     });
 
 
-//     app.delete('/:id', function(req,res) {
-//         console.log("in delete");
+  //  app.delete('/:id', function(req, res) {
+   //     console.log("Delete param: " + req.params.id);
+
 //         var readdata = JSON.parse(fs.readFileSync(contactsFile, 'utf8'));
 //         var data = findRemove(readdata.contacts, 'id', req.params.id);
 //
@@ -115,8 +89,12 @@ module.exports = function(app) {
 //             res.end(JSON.stringify(readdata));
 //             console.log('writing to ' + contactsFile);
 //         });
-//         // return data;
-//     });
+//         return data;
+        //readdata.contacts = contactlist;
+        //res.writeHead(200, {'Content-Type': 'text/html'});
+        //res.end(JSON.stringify(readdata));
+   //     res.end();
+   // });
 //
 //     app.get('/sorta', function(req, res){
 //         console.log("in sort");
