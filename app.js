@@ -1,12 +1,12 @@
 /**
  * Created by kendratate on 4/3/17.
  */
-var express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser');
 var cors = require('cors');
+const http = require('http');
 
-var http = require('http');
-var bodyParser = require('body-parser');
-var app = express();
+const app = express();
 
 app.use(cors());
 app.use(bodyParser.json({ type: 'application/json' }));
@@ -15,8 +15,3 @@ app.use(bodyParser.urlencoded({
 }));
 
 var contacts = require('./contacts.js')(app);
-
-
-var server = app.listen(3000, function(){
-    console.log("Server is listening on port 3000");
-});
