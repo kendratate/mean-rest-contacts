@@ -1,0 +1,48 @@
+{ 
+    "_id" : ObjectId("58f7f8c7e1ec530475054597"), 
+    "firstname" : "Mickey", 
+    "lastname" : "Mouse", 
+    "phone" : "888-338-8383"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec530475054599"), 
+    "firstname" : "Donald", 
+    "lastname" : "Duck", 
+    "phone" : "899-766-8328"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec53047505459b"), 
+    "firstname" : "Goofy", 
+    "lastname" : "Dog", 
+    "phone" : "887-700-8333"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec53047505459c"), 
+    "firstname" : "Fred", 
+    "lastname" : "Flinstone", 
+    "phone" : "854-777-8888"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec53047505459d"), 
+    "firstname" : "Barney", 
+    "lastname" : "Rubble", 
+    "phone" : "233-777-8888"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec53047505459e"), 
+    "firstname" : "Snow", 
+    "lastname" : "White", 
+    "phone" : "866-433-8228"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec53047505459f"), 
+    "firstname" : "testfirst", 
+    "lastname" : "testlast", 
+    "phone" : "555-555-5555"
+}
+{ 
+    "_id" : ObjectId("58f7fd00e1ec5304750545a0"), 
+    "firstname" : null, 
+    "lastname" : null, 
+    "phone" : null
+}

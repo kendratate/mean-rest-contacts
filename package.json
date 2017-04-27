@@ -4,7 +4,7 @@
   "description": "Mongo Server for Contact Web app",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kendra Tate",
@@ -16,5 +16,8 @@
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.26"
+  },
+  "engines": {
+    "node": "6.10.2"
   }
 }
